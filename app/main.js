@@ -3,7 +3,8 @@ require.config({
     paths: {
         'domReady' : 'vendors/requirejs-domready/domReady',
         'angular' : 'vendors/angular/angular',
-        'angular-route' : 'vendors/angular-route/angular-route'
+        'angular-route' : 'vendors/angular-route/angular-route',
+        'angular-cookies': 'vendors/angular-cookies/angular-cookies'
     },
     shim : {
         'angular' : {
@@ -11,6 +12,9 @@ require.config({
         },
         'angular-route': {
             'deps':['angular']
+        },
+        'angular-cookies' : {
+            'deps' : ['angular']
         }
     }
 });

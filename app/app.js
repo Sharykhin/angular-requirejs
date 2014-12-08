@@ -2,14 +2,22 @@ define([
     'angular',
     './config',
     './src/frontend/module.config',
+    './src/common/module.config',
+    './src/backend/module.config',
     'angular-route',
-    './src/frontend/module.require'
-],function(angular,config,frontendModuleConfig){
+    'angular-cookies',
+    './src/frontend/module.require',
+    './src/common/module.require',
+    './src/backend/module.require'
+],function(angular,config,frontendModuleConfig,commonModuleConfig,backendModuleConfig){
    'use strict';
 
     var app = angular.module(config.name,[
         'ngRoute',
-        frontendModuleConfig.name
+        'ngCookies',
+        frontendModuleConfig.name,
+        commonModuleConfig.name,
+        backendModuleConfig.name
     ]).run(function(){
 
     });
