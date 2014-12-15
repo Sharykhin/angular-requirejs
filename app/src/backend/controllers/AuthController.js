@@ -9,24 +9,35 @@ define([
     var dependencies = ['$scope','$cookieStore','$http','authUrl','userUrl'];
 
     var controller = function($scope,$cookieStore,$http,authUrl,userUrl) {
+
+//        $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
         var uid = $cookieStore.get('uid');
 
         $scope.error=null;
 
+        $scope.template='login.html';
 
         if(uid !== undefined) {
             $http.get(userUrl+uid,{withCredentials : true}).success(function(response){
                 if(response.id == uid) {
-                    console.log('redirect me');
+                    $scope.template='dashboard.html'
                 }
             });
         };
 
+
+        $scope.getTemplate = function() {
+            return 'src/backend/templates/' + $scope.template;
+        }
+
         $scope.authenticate = function() {
             $scope.error=null;
-            $http.post(authUrl,{username:$scope.username,password:$scope.password})
+
+            $http.post(authUrl,{username:this.username,password:this.password})
                 .success(function(response){
                     $cookieStore.put('uid',response.uid);
+                    $scope.template='dashboard.html';
                 })
                 .error(function(response){
                     var status = response.status;

@@ -13,7 +13,7 @@ define([
         });
 
         $routeProvider.when('/backend',{
-           templateUrl:'src/' +  backendModuleConfig.templatePath + 'login.html',
+           templateUrl:'src/' +  backendModuleConfig.templatePath + 'backend.html',
            controller: backendModuleConfig.name + '.AuthController'
         });
     });

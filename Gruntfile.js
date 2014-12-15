@@ -8,14 +8,14 @@ module.exports = function(grunt) {
                files:['app/**/*.js','!app/vendors/**/*'],
                tasks:['jshint'],
                options: {
-                   livereload: true
+                   livereload: false
                }
            },
            html: {
                files: ['app/**/*.html'],
                tasks: [],
                options: {
-                   livereload: true
+                   livereload: false
                }
            }
        },
