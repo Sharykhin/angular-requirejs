@@ -10,13 +10,13 @@ define([
 
     var controller = function($scope,$cookieStore,$http,authUrl,userUrl) {
 
-//        $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+//      $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
         var uid = $cookieStore.get('uid');
 
         $scope.error=null;
 
-        $scope.template='login.html';
+        $scope.template=false;
 
         if(uid !== undefined) {
             $http.get(userUrl+uid,{withCredentials : true}).success(function(response){
@@ -24,11 +24,13 @@ define([
                     $scope.template='dashboard.html'
                 }
             });
-        };
+        } else {
+            $scope.template = 'login.html';
+        }
 
 
         $scope.getTemplate = function() {
-            return 'src/backend/templates/' + $scope.template;
+            return $scope.template ? 'src/backend/templates/' + $scope.template : false;
         }
 
         $scope.authenticate = function() {
@@ -45,6 +47,10 @@ define([
                         $scope.error = 'Bad credentials';
                     }
                 });
+        };
+
+        $scope.getBackendTemplate = function() {
+            return 'src/backend/templates/hello.html';
         };
 
         $scope.legend = 'Login form';

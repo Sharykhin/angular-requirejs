@@ -4,7 +4,7 @@ define(['../../config'],function(config){
     var moduleConfig = {
         name: config.name + '.Backend',
         templatePath: 'backend/templates/'
-    }
+    };
 
     return moduleConfig;
 });

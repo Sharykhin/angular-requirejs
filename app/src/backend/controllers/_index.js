@@ -1,5 +1,6 @@
 define([
-    './AuthController'
+    './AuthController',
+    './EventsController'
 ],function(){
     'use strict';
 });

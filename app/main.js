@@ -1,3 +1,5 @@
+'use strict';
+
 require.config({
     baseUrl:'/',
     paths: {
@@ -28,5 +30,5 @@ require([
     angular.element(document).ready(function(){
         angular.bootstrap(document,[config.name]);
     });
-})
+});
 

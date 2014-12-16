@@ -16,5 +16,11 @@ define([
            templateUrl:'src/' +  backendModuleConfig.templatePath + 'backend.html',
            controller: backendModuleConfig.name + '.AuthController'
         });
+
+        $routeProvider.when('/backend/event-management',{
+           templateUrl:'src/'+ backendModuleConfig.templatePath + '/backend.html',
+           controller: backendModuleConfig.name + '.EventsController'
+
+        });
     });
 });

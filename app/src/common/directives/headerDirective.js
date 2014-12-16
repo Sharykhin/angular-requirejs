@@ -11,7 +11,7 @@ define([
        return  {
            restrict: 'E',
            templateUrl: 'src/common/directives/templates/' + name +'/header.html',
-           controller: function($scope) {
+           controller: function($scope,$location) {
 
            }
        }
